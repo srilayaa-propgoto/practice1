@@ -1,0 +1,12 @@
+function stateChange() { 
+            var xhr = new XMLHttpRequest(); 
+            xhr.onload = function () { 
+                if (this.readyState == 4) { 
+                    document.getElementById("container").innerHTML = 
+                        this.responseText + "Status Text: "  
+                        + this.statusText; 
+                } 
+            }; 
+            xhr.open("GET", "gfgInfo.txt", true); 
+            xhr.send(); 
+        } 

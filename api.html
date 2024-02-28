@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<html> 
+
+<head> 
+	<meta charset="UTF-8"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+	<meta name="viewport" content= 
+		"width=device-width, initial-scale=1.0"> 
+	<title>Ready states of a request in ajax</title> 
+    <link rel="stylesheet" href="s3.css">
+	<style> 
+		#container { 
+			display: flex; 
+			flex-direction: column; 
+			justify-content: center; 
+			align-items: center; 
+		} 
+	</style> 
+</head> 
+
+<body> 
+	<div id="container"> 
+		<h1>Hey Geek,</h1> 
+		<h3>Welcome to GeeksforGeek!</h3> 
+		<button type="button" onclick="stateChange()"> 
+			Update Text 
+		</button> 
+	</div> 
+
+	<script> 
+		function stateChange() { 
+			var state = new XMLHttpRequest(); 
+			state.onload = function () { 
+				document.getElementById("container") 
+					.innerHTML = state.getAllResponseHeaders(); 
+			} 
+			state.open("GET", "gfgInfo.txt", true); 
+			state.send(); 
+		} 
+	</script> 
+</body> 
+
+</html>
